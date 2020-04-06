@@ -1,7 +1,7 @@
 # chessboard-arrows
 A library that extends any chessboard library to allow users to draw arrows and circles. The following setup will use [chessboard.js](https://github.com/oakmac/chessboardjs) for demonstration.
 
-![Example](example.png)
+![Example](example.PNG)
 
 Right-click to draw arrows and circles, left-click to clear the drawings.
 
