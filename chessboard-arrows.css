@@ -1,0 +1,18 @@
+#board_wrapper{
+    position: relative;
+}
+
+#primary_canvas, #drawing_canvas, #board{
+    position: absolute; 
+    top: 0px; 
+    left: 0px;
+}
+
+#board {
+    z-index: -1;
+}
+
+#primary_canvas, #drawing_canvas {
+    opacity: 0.8;
+    padding: 2px;
+}
