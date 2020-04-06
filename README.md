@@ -1,5 +1,5 @@
 # chessboard-arrows
-A library that extends any chessboard library to allow users to draw arrows and circles. The following setup will use chessboard.js for demonstration.
+A library that extends any chessboard library to allow users to draw arrows and circles. The following setup will use [chessboard.js](https://github.com/oakmac/chessboardjs) for demonstration.
 
 # Setup
 
@@ -28,7 +28,7 @@ An example `index.html` is shown below to setup a project. It imports the javasc
     </script>
 </html>
 ```
-
-chessboard-arrows is configured by two drawing parameters:
-  -`resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
-  -`colour`: the colour of the arrows and circles.
+# Options
+chessboard-arrows is initialised by `ChessboardArrows(resFactor, colour)`, where the following parameters are given as arguments:
+  * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
+  * `colour`: the colour of the arrows and circles.
