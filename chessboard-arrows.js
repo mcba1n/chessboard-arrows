@@ -10,9 +10,9 @@ Date: 07/04/2020
 const NUM_SQUARES = 8;
 var resFactor, colour, drawCanvas, drawContext, primaryCanvas, primaryContext, initialPoint, mouseDown
 
-function ChessboardArrows() {
-    resFactor = 2;                  // ***INCREASE THIS TO INCREASE DPI***
-    colour = 'rgb(50, 104, 168)';    // ***CHANGE ARROW AND CIRCLE COLOUR***
+function ChessboardArrows(RES_FACTOR = 2, COLOUR = 'rgb(50, 104, 168)') {
+    resFactor = RES_FACTOR;
+    colour = COLOUR; 
 
     // drawing canvas
     drawCanvas = document.getElementById('drawing_canvas');
