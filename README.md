@@ -7,7 +7,7 @@ Right-click to draw arrows and circles, left-click to clear the drawings.
 
 ## Setup
 
-An example `index.html` is shown below to setup a project. It imports the javascript and stylesheet files for chessboard-arrows and chessboard.js. The initial board size is set to `400px`, with the canvas size 8 pixels less than this.
+An example `index.html` is shown below to setup a project. It imports the javascript and stylesheet files for chessboard-arrows and chessboard.js. The initial board size is set to `400px`, with the canvas size 8 pixels less than this--this should be adjusted for your particular chessboard, ensuring the canvas perfectly overlays the chessboard.
 
 ```html
 <html>
