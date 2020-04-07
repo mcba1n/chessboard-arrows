@@ -155,7 +155,7 @@ function drawArrowToCanvas(context) {
 function quantiser(p) {
     return { x: Q(p.x), y: Q(p.y) };
 
-    function Q(x, d) {  // mid-tread quantiser
+    function Q(x) {  // mid-tread quantiser
         d = primaryCanvas.width/(resFactor*NUM_SQUARES);
         return d*(Math.floor(x/d) + 0.5);
     }
