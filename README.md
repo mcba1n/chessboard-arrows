@@ -5,7 +5,7 @@ A library that extends any chessboard library to allow users to draw arrows and 
 
 Right-click to draw arrows and circles, left-click to clear the drawings.
 
-## Setup
+## setup
 
 An example `index.html` is shown below to setup a project. It imports the javascript and stylesheet files for chessboard-arrows and chessboard.js. The initial board size is set to `400px`, with the canvas size 8 pixels less than this.
 
@@ -32,7 +32,7 @@ An example `index.html` is shown below to setup a project. It imports the javasc
     </script>
 </html>
 ```
-## Options
+## options
 chessboard-arrows is initialised by `ChessboardArrows(id[, resFactor, colour])`, where the following parameters are given as arguments:
   * `id`: the board wrapper ID.
   * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
