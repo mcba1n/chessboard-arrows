@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+    href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css"
+    integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU"
+    crossorigin="anonymous">
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+            integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="chessboard-arrows.css">
+    <script src="chessboard-arrows.js"></script>
+</head>
+
+<body>
+    <div id="board_wrapper">
+        <canvas id="primary_canvas" width="392" height="392" ></canvas>
+        <canvas id="drawing_canvas"  width="392" height="392" ></canvas>
+        <div id="board" style="width: 400px; height: 400px;"></div>
+    </div>
+</body>
+<script>
+    var board = Chessboard('board', 'start');
+    ChessboardArrows('board_wrapper');
+</script>
+</html>
