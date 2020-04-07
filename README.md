@@ -28,12 +28,13 @@ An example `index.html` is shown below to setup a project. It imports the javasc
     </body>
     <script>
         var board = Chessboard('board', 'start');
-        ChessboardArrows('board_wrapper');
+        var overlay = new ChessboardArrows('board_wrapper');
     </script>
 </html>
 ```
 ## Options
-chessboard-arrows is initialised by `ChessboardArrows(id[, resFactor, colour])`, where the following parameters are given as arguments:
+chessboard-arrows is initialised by `var overlay = new ChessboardArrows(id[, resFactor, colour])`, where the following parameters are given as arguments:
   * `id`: the board wrapper ID.
   * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
   * `colour`: the colour of the arrows and circles.
+You can clear the canvas by calling `overlay.clearCanvas()'.
