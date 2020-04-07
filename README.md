@@ -6,6 +6,21 @@ A library that extends any chessboard library to allow users to draw arrows and 
 Right-click to draw arrows and circles, left-click to clear the drawings.
 
 ## Setup
+Run the following npm command to install the package to `node_modules`.
+
+```
+npm i chessboard-arrows
+```
+
+chessboard-arrows is initialised by `var overlay = new ChessboardArrows(id[, resFactor, colour])`, where the following parameters are given as arguments:
+  * `id`: the board wrapper ID.
+  * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
+  * `colour`: the colour of the arrows and circles.
+
+You can clear the canvas by calling `overlay.clearCanvas()`.
+
+
+## Example
 
 An example `index.html` is shown below to setup a project. It imports the javascript and stylesheet files for chessboard-arrows and chessboard.js. The initial board size is set to `400px`, with the canvas size 8 pixels less than this--this should be adjusted for your particular chessboard, ensuring the canvas perfectly overlays the chessboard.
 
@@ -32,10 +47,3 @@ An example `index.html` is shown below to setup a project. It imports the javasc
     </script>
 </html>
 ```
-## Options
-chessboard-arrows is initialised by `var overlay = new ChessboardArrows(id[, resFactor, colour])`, where the following parameters are given as arguments:
-  * `id`: the board wrapper ID.
-  * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
-  * `colour`: the colour of the arrows and circles.
-
-You can clear the canvas by calling `overlay.clearCanvas()`.
