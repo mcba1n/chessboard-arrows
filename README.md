@@ -37,4 +37,5 @@ chessboard-arrows is initialised by `var overlay = new ChessboardArrows(id[, res
   * `id`: the board wrapper ID.
   * `resFactor`: the ratio of the canvas size and board size. Increase this to get a higher DPI.
   * `colour`: the colour of the arrows and circles.
-You can clear the canvas by calling `overlay.clearCanvas()'.
+
+You can clear the canvas by calling `overlay.clearCanvas()`.
