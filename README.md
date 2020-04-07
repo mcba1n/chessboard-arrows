@@ -28,7 +28,7 @@ An example `index.html` is shown below to setup a project. It imports the javasc
     </body>
     <script>
         var board = Chessboard('board', 'start');
-        ChessboardArrows();
+        ChessboardArrows('board_wrapper');
     </script>
 </html>
 ```
