@@ -1,0 +1,24 @@
+{
+  "name": "chessboard-arrows",
+  "version": "1.0.1",
+  "description": "A library that extends any chessboard interface to draw arrows and circles.",
+  "main": "chessboard-arrows.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcba1n/chessboard-arrows.git"
+  },
+  "keywords": [
+    "chessboardjs",
+    "chessboard",
+    "arrows"
+  ],
+  "author": "Brendon McBain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcba1n/chessboard-arrows/issues"
+  },
+  "homepage": "https://github.com/mcba1n/chessboard-arrows#readme"
+}
