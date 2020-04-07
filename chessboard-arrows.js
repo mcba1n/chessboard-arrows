@@ -7,36 +7,38 @@ Author: Brendon McBain
 Date: 07/04/2020
 
 */
+
+var ChessboardArrows = function (id, RES_FACTOR = 2, COLOUR = 'rgb(50, 104, 168)') {
+
 const NUM_SQUARES = 8;
 var resFactor, colour, drawCanvas, drawContext, primaryCanvas, primaryContext, initialPoint, mouseDown
 
-function ChessboardArrows(WRAPPER_ID, RES_FACTOR = 2, COLOUR = 'rgb(50, 104, 168)') {
-    resFactor = RES_FACTOR;
-    colour = COLOUR; 
+resFactor = RES_FACTOR;
+colour = COLOUR; 
 
-    // drawing canvas
-    drawCanvas = document.getElementById('drawing_canvas');
-    drawContext = setResolution(drawCanvas, resFactor);
-    setContextStyle(drawContext);
+// drawing canvas
+drawCanvas = document.getElementById('drawing_canvas');
+drawContext = changeResolution(drawCanvas, resFactor);
+setContextStyle(drawContext);
 
-    // primary canvas
-    primaryCanvas = document.getElementById('primary_canvas');
-    primaryContext = setResolution(primaryCanvas, resFactor);
-    setContextStyle(primaryContext);
+// primary canvas
+primaryCanvas = document.getElementById('primary_canvas');
+primaryContext = changeResolution(primaryCanvas, resFactor);
+setContextStyle(primaryContext);
 
-    // setup mouse event callbacks
-    var board = document.getElementById(WRAPPER_ID);
-    board.addEventListener("mousedown", function(event) { onMouseDown(event); });
-    board.addEventListener("mouseup", function(event) { onMouseUp(event); });
-    board.addEventListener("mousemove", function(event) { onMouseMove(event); });
-    board.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
+// setup mouse event callbacks
+var board = document.getElementById(id);
+board.addEventListener("mousedown", function(event) { onMouseDown(event); });
+board.addEventListener("mouseup", function(event) { onMouseUp(event); });
+board.addEventListener("mousemove", function(event) { onMouseMove(event); });
+board.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
 
-    // initialise vars
-    initialPoint = { x: null, y: null };
-    finalPoint = { x: null, y: null };
-    arrowWidth = 15;
-    mouseDown = false;
-}
+// initialise vars
+initialPoint = { x: null, y: null };
+finalPoint = { x: null, y: null };
+arrowWidth = 15;
+mouseDown = false;
+
 
 // source: https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag
 function drawArrow(context, fromx, fromy, tox, toy, r) {
@@ -69,10 +71,10 @@ function drawArrow(context, fromx, fromy, tox, toy, r) {
 
 function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
-    return quantiser({
-      x: evt.clientX - rect.left,
-      y: evt.clientY - rect.top
-    });
+    return {
+      x: Q(evt.clientX - rect.left),
+      y: Q(evt.clientY - rect.top)
+    };
 }
 
 function setContextStyle(context) {
@@ -102,14 +104,10 @@ function onMouseUp(event) {
         drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
     }
     else if (event.which == 1) { // left click
-        clearCanvas();
+        // clear canvases
+        drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
+        primaryContext.clearRect(0, 0, primaryCanvas.width, primaryCanvas.height);
     }
-}
-
-function clearCanvas() {
-    // clear canvases
-    drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
-    primaryContext.clearRect(0, 0, primaryCanvas.width, primaryCanvas.height);
 }
 
 function onMouseMove(event) {
@@ -152,13 +150,9 @@ function drawArrowToCanvas(context) {
     drawArrow(context, initialPoint.x, initialPoint.y, finalPoint.x - xFactor, finalPoint.y - yFactor, arrowWidth);
 }
 
-function quantiser(p) {
-    return { x: Q(p.x), y: Q(p.y) };
-
-    function Q(x) {  // mid-tread quantiser
-        d = primaryCanvas.width/(resFactor*NUM_SQUARES);
-        return d*(Math.floor(x/d) + 0.5);
-    }
+function Q(x, d) {  // mid-tread quantiser
+    d = primaryCanvas.width/(resFactor*NUM_SQUARES);
+    return d*(Math.floor(x/d) + 0.5);
 }
 
 function drawCircle(context, x, y, r) {
@@ -169,7 +163,7 @@ function drawCircle(context, x, y, r) {
 }
 
 // source: https://stackoverflow.com/questions/14488849/higher-dpi-graphics-with-html5-canvas
-function setResolution(canvas, scaleFactor) {
+function changeResolution(canvas, scaleFactor) {
     // Set up CSS size.
     canvas.style.width = canvas.style.width || canvas.width + 'px';
     canvas.style.height = canvas.style.height || canvas.height + 'px';
@@ -180,4 +174,6 @@ function setResolution(canvas, scaleFactor) {
     var ctx = canvas.getContext('2d');
     ctx.scale(scaleFactor, scaleFactor);
     return ctx;
+}
+
 }
