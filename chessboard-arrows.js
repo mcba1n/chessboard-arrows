@@ -10,22 +10,22 @@ Date: 07/04/2020
 const NUM_SQUARES = 8;
 var resFactor, colour, drawCanvas, drawContext, primaryCanvas, primaryContext, initialPoint, mouseDown
 
-function ChessboardArrows(RES_FACTOR = 2, COLOUR = 'rgb(50, 104, 168)') {
+function ChessboardArrows(WRAPPER_ID, RES_FACTOR = 2, COLOUR = 'rgb(50, 104, 168)') {
     resFactor = RES_FACTOR;
     colour = COLOUR; 
 
     // drawing canvas
     drawCanvas = document.getElementById('drawing_canvas');
-    drawContext = changeResolution(drawCanvas, resFactor);
+    drawContext = setResolution(drawCanvas, resFactor);
     setContextStyle(drawContext);
 
     // primary canvas
     primaryCanvas = document.getElementById('primary_canvas');
-    primaryContext = changeResolution(primaryCanvas, resFactor);
+    primaryContext = setResolution(primaryCanvas, resFactor);
     setContextStyle(primaryContext);
 
     // setup mouse event callbacks
-    var board = document.getElementById('board_wrapper');
+    var board = document.getElementById(WRAPPER_ID);
     board.addEventListener("mousedown", function(event) { onMouseDown(event); });
     board.addEventListener("mouseup", function(event) { onMouseUp(event); });
     board.addEventListener("mousemove", function(event) { onMouseMove(event); });
@@ -102,10 +102,14 @@ function onMouseUp(event) {
         drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
     }
     else if (event.which == 1) { // left click
-        // clear canvases
-        drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
-        primaryContext.clearRect(0, 0, primaryCanvas.width, primaryCanvas.height);
+        clearCanvas();
     }
+}
+
+function clearCanvas() {
+    // clear canvases
+    drawContext.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
+    primaryContext.clearRect(0, 0, primaryCanvas.width, primaryCanvas.height);
 }
 
 function onMouseMove(event) {
@@ -165,7 +169,7 @@ function drawCircle(context, x, y, r) {
 }
 
 // source: https://stackoverflow.com/questions/14488849/higher-dpi-graphics-with-html5-canvas
-function changeResolution(canvas, scaleFactor) {
+function setResolution(canvas, scaleFactor) {
     // Set up CSS size.
     canvas.style.width = canvas.style.width || canvas.width + 'px';
     canvas.style.height = canvas.style.height || canvas.height + 'px';

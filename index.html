@@ -13,7 +13,8 @@
     <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
             integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" src="chessboard-arrows.js" href="chessboard-arrows.css">
+    <link rel="stylesheet" href="chessboard-arrows.css">
+    <script src="chessboard-arrows.js"></script>
 </head>
 
 <body>
@@ -23,9 +24,8 @@
         <div id="board" style="width: 400px; height: 400px;"></div>
     </div>
 </body>
-<script src="test.js"></script>
 <script>
     var board = Chessboard('board', 'start');
-    ChessboardArrows();
+    ChessboardArrows('board_wrapper');
 </script>
 </html>
