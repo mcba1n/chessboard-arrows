@@ -1,5 +1,5 @@
 # chessboard-arrows
-A library that extends any chessboard library to allow users to draw arrows and circles. The following setup will use [chessboard.js](https://github.com/oakmac/chessboardjs) for demonstration.
+A library that extends any chessboard library to allow users to draw arrows and circles. It supports ES5 and TypeScript. The following setup will use [chessboard.js](https://github.com/oakmac/chessboardjs) for demonstration with the ES5 script.
 
 ![Example](example.PNG)
 
@@ -16,7 +16,7 @@ An example `index.html` is shown below to setup a project. It imports the javasc
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
         <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-        <link rel="stylesheet" src="chessboard-arrows.js" href="chessboard-arrows.css">
+        <link rel="stylesheet" href="chessboard-arrows.css">
         <script src="chessboard-arrows.js"></script>
     </head>
     <body>
