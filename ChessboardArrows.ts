@@ -80,10 +80,10 @@ export default class ChessboardArrows {
 
     private getMousePos(canvas: any, evt: any): any {
         const rect = canvas.getBoundingClientRect();
-        return this.quantiser({
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        });
+        return {
+            x: this.Q(evt.clientX - rect.left),
+            y: this.Q(evt.clientY - rect.top)
+        };
     }
 
     private setContextStyle(context: any): void {
@@ -162,14 +162,10 @@ export default class ChessboardArrows {
         // draw arrow head
         this.drawArrow(context, this.initialPoint.x, this.initialPoint.y, this.finalPoint.x - xFactor, this.finalPoint.y - yFactor, this.arrowWidth);
     }
-
-    private quantiser(p: any): any {
-        return { x: Q(p.x), y: Q(p.y) };
-
-        function Q(x: number): number {  // mid-tread quantiser
-            const d = this.primaryCanvas.width/(this.resFactor*NUM_SQUARES);
-            return d*(Math.floor(x/d) + 0.5);
-        }
+    
+    private Q(x: number): number {  // mid-tread quantiser
+        const d = this.primaryCanvas.width/(this.resFactor*NUM_SQUARES);
+        return d*(Math.floor(x/d) + 0.5);
     }
 
     private drawCircle(context: any, x: any, y: any, r: number): void {
