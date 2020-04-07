@@ -1,6 +1,6 @@
 {
   "name": "chessboard-arrows",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library that extends any chessboard interface to draw arrows and circles.",
   "main": "chessboard-arrows.js",
   "scripts": {
